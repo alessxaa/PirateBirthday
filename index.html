@@ -1,52 +1,185 @@
-
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Buon Compleanno Capitano</title>
+    <title>Buon Compleanno Capitano</title>
 
-<link rel="stylesheet" href="css/style.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/scene1.css">
+    <link rel="stylesheet" href="css/scene2.css">
+    <link rel="stylesheet" href="css/scene3.css">
+    <link rel="stylesheet" href="css/scene4.css">
+
+    <!-- Font Pirata -->
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-<div id="loading">
+    <!-- ========================= -->
+    <!-- LOADING SCREEN -->
+    <!-- ========================= -->
 
-    <h1>Caricamento...</h1>
+    <div id="loadingScreen">
 
-</div>
-
-<canvas id="scene"></canvas>
-
-<div id="intro">
-
-    <div class="parchment">
-
-        <h1>Capitano Andrea...</h1>
-
-        <p>Oggi compi 22 anni.</p>
-
-        <p>Un tesoro ti attende.</p>
-
-        <button id="start">
-
-            ⚓ SALPA
-
-        </button>
+        <h1>Caricamento...</h1>
 
     </div>
 
-</div>
+    <!-- ========================= -->
+    <!-- SCENA 1 -->
+    <!-- ========================= -->
 
-<script src="https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.min.js"></script>
+    <section id="scene1" class="scene active">
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+        <!-- Canvas Three.js -->
+        <canvas id="sceneCanvas"></canvas>
 
-<script src="js/main.js"></script>
+        <!-- Nebbia -->
+        <div id="fog"></div>
+
+        <!-- Pergamena -->
+        <div id="parchment">
+
+            <h1>Capitano Andrea...</h1>
+
+            <p>Oggi compi 22 anni.</p>
+
+            <p>Un tesoro ti attende...</p>
+
+            <button id="startAdventure">
+
+                ⚓ SALPA
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- SCENA 2 -->
+    <!-- ========================= -->
+
+    <section id="scene2" class="scene">
+
+        <div class="mapContainer">
+
+            <img
+                src="assets/images/map.png"
+                alt="Mappa del Tesoro"
+                id="treasureMap">
+
+            <div id="compass"></div>
+
+            <div id="redX"></div>
+
+            <p id="mapMessage">
+
+                Trova il punto segnato sulla mappa...
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- SCENA 3 -->
+    <!-- ========================= -->
+
+    <section id="scene3" class="scene">
+
+        <div id="treasureRoom">
+
+            <img
+                src="assets/images/chest.png"
+                alt="Forziere"
+                id="chest">
+
+            <div id="coins"></div>
+
+            <div id="treasureItems">
+
+                <button class="treasureButton" id="photosBtn">
+                    📸 Foto
+                </button>
+
+                <button class="treasureButton" id="videoBtn">
+                    🎥 Video
+                </button>
+
+                <button class="treasureButton" id="musicBtn">
+                    🎵 Canzone
+                </button>
+
+                <button class="treasureButton" id="letterBtn">
+                    💌 Sorpresa
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- SCENA 4 -->
+    <!-- ========================= -->
+
+    <section id="scene4" class="scene">
+
+        <div id="finalScroll">
+
+            <h1>Capitano Andrea</h1>
+
+            <div id="finalMessage">
+
+                <!-- Verrà scritto con effetto macchina da scrivere -->
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- AUDIO -->
+    <!-- ========================= -->
+
+    <audio id="seaAudio" loop></audio>
+
+    <audio id="musicAudio"></audio>
+
+    <audio id="effectAudio"></audio>
+
+    <!-- ========================= -->
+    <!-- LIBRERIE -->
+    <!-- ========================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+    <!-- ========================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================= -->
+
+    <script src="js/audio.js"></script>
+
+    <script src="js/scene1.js"></script>
+    <script src="js/scene2.js"></script>
+    <script src="js/scene3.js"></script>
+    <script src="js/scene4.js"></script>
+
+    <script src="js/main.js"></script>
 
 </body>
+
 </html>
