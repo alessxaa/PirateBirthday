@@ -1,1 +1,380 @@
 
+/* =======================================================
+   SCENA 1 - IL MARE
+======================================================= */
+
+#scene1{
+
+    background:
+        radial-gradient(circle at top,#0d2c63 0%,#06152f 35%,#01060f 100%);
+
+}
+
+/* =======================================================
+   CANVAS THREE.JS
+======================================================= */
+
+#sceneCanvas{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    z-index:1;
+
+}
+
+/* =======================================================
+   NEBBIA
+======================================================= */
+
+#fog{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:3;
+
+    opacity:.35;
+
+    background:
+        radial-gradient(circle,
+        rgba(255,255,255,.10) 0%,
+        rgba(255,255,255,.03) 40%,
+        transparent 75%);
+
+    background-size:900px 900px;
+
+    animation:fogMove 45s linear infinite;
+
+}
+
+@keyframes fogMove{
+
+    from{
+
+        transform:translateX(-12%) translateY(0);
+
+    }
+
+    to{
+
+        transform:translateX(12%) translateY(-2%);
+
+    }
+
+}
+
+/* =======================================================
+   PERGAMENA
+======================================================= */
+
+#parchment{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:760px;
+    max-width:90%;
+
+    padding:60px;
+
+    border-radius:14px;
+
+    background:linear-gradient(
+        180deg,
+        #f3e3b4,
+        #e5c98d
+    );
+
+    border:6px solid #8d6b2e;
+
+    box-shadow:
+
+        0 0 80px rgba(0,0,0,.75),
+        inset 0 0 40px rgba(80,40,0,.25);
+
+    z-index:10;
+
+    opacity:0;
+
+}
+
+#parchment h1{
+
+    text-align:center;
+
+    color:#41260b;
+
+    font-size:3rem;
+
+    margin-bottom:30px;
+
+}
+
+#parchment p{
+
+    text-align:center;
+
+    color:#3c2b18;
+
+    font-size:1.35rem;
+
+    margin:18px 0;
+
+}
+
+#startAdventure{
+
+    display:block;
+
+    margin:45px auto 0;
+
+    min-width:220px;
+
+}
+
+/* =======================================================
+   NAVE
+======================================================= */
+
+#ship{
+
+    position:absolute;
+
+    bottom:12%;
+
+    left:-550px;
+
+    width:480px;
+
+    z-index:5;
+
+    pointer-events:none;
+
+    filter:
+
+        drop-shadow(0 0 30px rgba(0,0,0,.85));
+
+    animation:
+
+        shipFloat 4s ease-in-out infinite;
+
+}
+
+@keyframes shipFloat{
+
+    0%{
+
+        transform:
+            translateY(0)
+            rotate(-1deg);
+
+    }
+
+    50%{
+
+        transform:
+            translateY(-10px)
+            rotate(1deg);
+
+    }
+
+    100%{
+
+        transform:
+            translateY(0)
+            rotate(-1deg);
+
+    }
+
+}
+
+/* =======================================================
+   LUNA
+======================================================= */
+
+#moonGlow{
+
+    position:absolute;
+
+    width:320px;
+    height:320px;
+
+    border-radius:50%;
+
+    right:6%;
+    top:5%;
+
+    background:
+
+        radial-gradient(circle,
+
+        rgba(255,255,255,.95) 0%,
+
+        rgba(220,235,255,.55) 25%,
+
+        rgba(180,210,255,.15) 55%,
+
+        transparent 72%);
+
+    filter:blur(8px);
+
+    animation:moonPulse 8s ease-in-out infinite;
+
+    z-index:2;
+
+}
+
+@keyframes moonPulse{
+
+    0%{
+
+        transform:scale(1);
+
+        opacity:.8;
+
+    }
+
+    50%{
+
+        transform:scale(1.05);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        opacity:.8;
+
+    }
+
+}
+
+/* =======================================================
+   VIGNETTA
+======================================================= */
+
+#scene1::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+
+        radial-gradient(circle,
+        transparent 45%,
+        rgba(0,0,0,.55) 100%);
+
+    z-index:20;
+
+}
+
+/* =======================================================
+   LUCE
+======================================================= */
+
+#scene1::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.04),
+            transparent 30%,
+            transparent 100%
+        );
+
+    pointer-events:none;
+
+    z-index:4;
+
+}
+
+/* =======================================================
+   RESPONSIVE
+======================================================= */
+
+@media(max-width:900px){
+
+    #parchment{
+
+        padding:35px;
+
+    }
+
+    #parchment h1{
+
+        font-size:2.2rem;
+
+    }
+
+    #parchment p{
+
+        font-size:1.1rem;
+
+    }
+
+    #ship{
+
+        width:300px;
+
+        bottom:10%;
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    #parchment{
+
+        width:92%;
+
+        padding:28px;
+
+    }
+
+    #parchment h1{
+
+        font-size:1.8rem;
+
+    }
+
+    #parchment p{
+
+        font-size:1rem;
+
+    }
+
+    #startAdventure{
+
+        width:100%;
+
+    }
+
+}
